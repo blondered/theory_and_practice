@@ -78,7 +78,7 @@ def batch_generator(X, y, batch_size=100):
 """Different optimizers for gradient descent"""
 
 
-class Classic():
+class Classic:
 
     def __init__(self, learning_rate=1e-3, get_grad=get_grad_mse):
         self.lr = learning_rate
@@ -88,7 +88,7 @@ class Classic():
         return w - self.lr * self.get_grad(X, y, w)
 
 
-class Momentum():
+class Momentum:
 
     def __init__(self, learning_rate=3e-4, alpha=0.9,
                  get_grad=get_grad_mse):
@@ -113,7 +113,7 @@ class MomentumNest(Momentum):
         return w - self.momentum
 
 
-class AdaGrad():
+class AdaGrad:
 
     def __init__(self, learning_rate=3e-4, alpha=0.9, eps=1e-6,
                  get_grad=get_grad_mse):
@@ -129,7 +129,7 @@ class AdaGrad():
         return w - (self.lr / np.sqrt(self.G_coef + self.eps)) * grad
 
 
-class RMSProp():
+class RMSProp:
 
     def __init__(self, learning_rate=3e-2, alpha=0.9, eps=1e-7,
                  get_grad=get_grad_mse):
@@ -145,7 +145,7 @@ class RMSProp():
         return w - (self.lr / (np.sqrt(self.G_coef + self.eps))) * grad
 
 
-class Adam():
+class Adam:
 
     def __init__(self, learning_rate=3e-2, alpha=0.9, beta=0.999,
                  eps=1e-3, get_grad=get_grad_mse):
@@ -164,7 +164,7 @@ class Adam():
         return w - (self.lr / (np.sqrt(self.v_coef + self.eps))) * self.m_coef
 
 
-class AdamNormed():
+class AdamNormed:
 
     def __init__(self, learning_rate=3e-2, alpha=0.9, beta=0.99,
                  eps=1e-3, get_grad=get_grad_mse):
@@ -192,7 +192,7 @@ class AdamNormed():
 """Linear regressor and logistic regressor with SGD solver"""
 
 
-class LinearRegression():
+class LinearRegression:
     """Linear regression with SGD training and opportunity to choose
     different SGD variations
     """
@@ -244,7 +244,7 @@ class LinearRegression():
         return logit(X, self.w)
 
 
-class LogisticRegression():
+class LogisticRegression:
     """Logistic regression with SGD training and opportunity to choose
     different SGD variations
     """
